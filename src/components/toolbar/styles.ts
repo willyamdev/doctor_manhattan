@@ -8,6 +8,9 @@ export const ToolbarContainer = styled.nav`
   padding-right: 40px;
 
   height: ${palette.TOOLBAR_AND_SIDEBAR_SIZE};
+
+  position: absolute;
+  width: 100%;
 `;
 
 export const BuyTicketButton = styled.button`
