@@ -7,6 +7,8 @@ import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const TrailersCarousel: React.FC = () => {
 
+    const currentScroll = useRef<number>(0);
+
     const trailers = [
         { cape: trailer1 },
         { cape: trailer2 },
@@ -24,7 +26,9 @@ const TrailersCarousel: React.FC = () => {
 
         setSelectedIndex(selectedIndex + 1);
 
-        trailersContainerRef.current?.scrollTo((trailersContainerRef.current?.scrollLeft + 360), 0);
+        currentScroll.current += 360;
+
+        trailersContainerRef.current?.scrollTo((currentScroll.current), 0);
     }
 
     const prev = () => {
@@ -32,7 +36,9 @@ const TrailersCarousel: React.FC = () => {
 
         setSelectedIndex(selectedIndex - 1);
 
-        trailersContainerRef.current?.scrollTo((trailersContainerRef.current?.scrollLeft - 360), 0);
+        currentScroll.current -= 360;
+
+        trailersContainerRef.current?.scrollTo((currentScroll.current), 0);
     }
 
     return (
@@ -42,7 +48,7 @@ const TrailersCarousel: React.FC = () => {
             <TrailersItemsContainer ref={trailersContainerRef}>
                 {
                     trailers.map((data, index) => (
-                        <img src={data.cape} alt="" />
+                        <img key={index} src={data.cape} alt="" />
                     ))
                 }
             </TrailersItemsContainer>
@@ -51,7 +57,7 @@ const TrailersCarousel: React.FC = () => {
                 <div className="carousel-items-trace-container">
 
                     {trailers.map((data, index) => (
-                        <CarouselItemTrace isSelected={index === selectedIndex} />
+                        <CarouselItemTrace key={index} isSelected={index === selectedIndex} />
                     ))}
                 </div>
 
