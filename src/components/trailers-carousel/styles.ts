@@ -7,14 +7,17 @@ export const TrailesContainer = styled.div`
 
 export const TrailersItemsContainer = styled.div`
   overflow: hidden;
-  display: flex;
   scroll-behavior: smooth;
+  display: flex;
   /* ::-webkit-scrollbar {
     width: 0;
   } */
-
+  
   img {
+    flex-shrink: 0;
     width: 344px;
+    height: 215px;
+    object-fit: cover;
     margin-right: 16px;
   }
 `;

@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { TrailesContainer, TrailersItemsContainer, ControllersContainer, CarouselItemTrace } from './styles';
 import trailer1 from '../../assets/home/trailer1.png';
 import trailer2 from '../../assets/home/trailer2.png';
+import trailer3 from '../../assets/home/trailer3.jpeg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
@@ -12,9 +13,7 @@ const TrailersCarousel: React.FC = () => {
     const trailers = [
         { cape: trailer1 },
         { cape: trailer2 },
-        { cape: trailer2 },
-        { cape: trailer2 },
-        { cape: trailer2 },
+        { cape: trailer3 },
     ];
 
     const trailersContainerRef = useRef<HTMLDivElement>(null);
